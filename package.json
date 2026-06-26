@@ -1,0 +1,40 @@
+{
+  "name": "manvielle-elegance",
+  "version": "1.0.0",
+  "description": "Catálogo institucional e administrativo MVC para papelaria premium e eventos.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "check:images": "node scripts/check-product-images.js",
+    "db:schema": "node scripts/schema.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node scripts/seed.js"
+  },
+  "keywords": [
+    "mvc",
+    "express",
+    "ejs",
+    "neon",
+    "postgresql",
+    "projeto-academico"
+  ],
+  "author": "Seu nome",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "connect-flash": "^0.1.1",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
