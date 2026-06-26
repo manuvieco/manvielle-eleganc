@@ -1,0 +1,16 @@
+<% const successMessages = (typeof messages !== 'undefined' && messages.success) ? messages.success : []; %>
+<% const errorMessages = (typeof messages !== 'undefined' && messages.error) ? messages.error : []; %>
+
+<% if (successMessages.length || errorMessages.length || (typeof errorMessage !== 'undefined' && errorMessage)) { %>
+  <div class="flash-wrap">
+    <% successMessages.forEach((message) => { %>
+      <div class="flash flash-success"><%= message %></div>
+    <% }) %>
+    <% errorMessages.forEach((message) => { %>
+      <div class="flash flash-error"><%= message %></div>
+    <% }) %>
+    <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+      <div class="flash flash-error"><%= errorMessage %></div>
+    <% } %>
+  </div>
+<% } %>

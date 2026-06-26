@@ -1,0 +1,71 @@
+<% if (dbError) { %>
+  <div class="flash-wrap is-static">
+    <div class="flash flash-error"><%= dbError %></div>
+  </div>
+<% } %>
+
+<section class="stats-grid">
+  <article class="stat-card">
+    <span>Total</span>
+    <strong><%= stats.total %></strong>
+    <small>Itens cadastrados</small>
+  </article>
+  <article class="stat-card">
+    <span>Produtos</span>
+    <strong><%= stats.products %></strong>
+    <small>Peças físicas</small>
+  </article>
+  <article class="stat-card">
+    <span>Serviços</span>
+    <strong><%= stats.services %></strong>
+    <small>Projetos e criação</small>
+  </article>
+  <article class="stat-card">
+    <span>Ativos</span>
+    <strong><%= stats.active %></strong>
+    <small>Visíveis no catálogo</small>
+  </article>
+</section>
+
+<section class="admin-section">
+  <div class="admin-section-header">
+    <div>
+      <span class="eyebrow">Recentes</span>
+      <h2>Últimos itens cadastrados</h2>
+    </div>
+    <a class="btn btn-primary" href="/admin/items/new">Novo item</a>
+  </div>
+
+  <div class="table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Status</th>
+          <th>Cadastro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (latestItems.length) { %>
+          <% latestItems.forEach((item) => { %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.type %></td>
+              <td><%= item.category %></td>
+              <td><%= formatCurrency(item.price) %></td>
+              <td><span class="status-badge <%= item.status === 'Ativo' ? 'is-active' : 'is-inactive' %>"><%= item.status %></span></td>
+              <td><%= formatDate(item.created_at) %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="6" class="table-empty">Nenhum item cadastrado ainda.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</section>

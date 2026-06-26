@@ -1,0 +1,23 @@
+<article class="item-card">
+  <div class="item-card-media">
+    <% const productImageUrl = resolveProductImageUrl(item); %>
+    <img
+      class="<%= productImageUrl.includes('/products-real/') ? 'is-photo' : 'is-illustration' %>"
+      src="<%= productImageUrl %>"
+      alt="<%= item.name %>"
+    >
+  </div>
+  <div class="item-card-body">
+    <div class="item-card-meta">
+      <span><%= item.category %></span>
+      <span class="status-badge <%= item.status === 'Ativo' ? 'is-active' : 'is-inactive' %>"><%= item.status %></span>
+    </div>
+    <h3><%= item.name %></h3>
+    <p><%= item.description %></p>
+    <div class="item-card-footer">
+      <strong><%= formatCurrency(item.price) %></strong>
+      <span><%= item.type %></span>
+    </div>
+    <a class="btn btn-card-buy" href="<%= buildWhatsAppUrl(item) %>" target="_blank" rel="noreferrer">Comprar pelo WhatsApp</a>
+  </div>
+</article>

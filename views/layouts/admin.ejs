@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle ? `${pageTitle} | ` : '' %>Admin <%= storeInfo.name %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="admin-shell">
+  <aside class="admin-sidebar" data-admin-sidebar>
+    <a class="brand admin-brand" href="/admin">
+      <img class="brand-logo" src="/images/logo-murcia.svg" alt="Logo Manvielle Elegance">
+      <span><%= storeInfo.name %></span>
+    </a>
+    <nav class="admin-menu">
+      <a class="<%= currentPath === '/admin' || currentPath === '/admin/dashboard' ? 'active' : '' %>" href="/admin">Dashboard</a>
+      <a class="<%= currentPath.startsWith('/admin/items') ? 'active' : '' %>" href="/admin/items">Produtos e Serviços</a>
+      <a href="/" target="_blank" rel="noreferrer">Ver site público</a>
+    </nav>
+    <form action="/logout" method="POST" class="logout-form">
+      <button type="submit" class="btn btn-outline btn-full">Sair</button>
+    </form>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <button class="icon-button admin-toggle" type="button" data-admin-toggle aria-label="Abrir menu administrativo">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div>
+        <span class="admin-kicker">Área administrativa</span>
+        <h1><%= pageTitle %></h1>
+      </div>
+      <div class="admin-user">
+        <span><%= user ? user.name : 'Administrador' %></span>
+      </div>
+    </header>
+    <%- include('../partials/flash') %>
+    <%- body %>
+  </main>
+  <script src="/js/main.js"></script>
+</body>
+</html>

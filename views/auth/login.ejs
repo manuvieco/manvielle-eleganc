@@ -1,0 +1,26 @@
+<section class="login-card">
+  <a class="brand auth-brand" href="/">
+    <img class="brand-logo" src="/images/logo-murcia.svg" alt="Logo Manvielle Elegance">
+    <span><%= storeInfo.name %></span>
+  </a>
+  <div>
+    <span class="eyebrow">Administração</span>
+    <h1>Entrar no painel</h1>
+    <p>Acesso reservado para gerenciamento do catálogo.</p>
+  </div>
+
+  <%- include('../partials/flash') %>
+
+  <form action="/login" method="POST" class="auth-form">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" value="<%= formData.email || '' %>" autocomplete="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+    </div>
+    <button class="btn btn-primary btn-full" type="submit">Entrar</button>
+  </form>
+  <a class="text-link" href="/">Voltar ao site público</a>
+</section>

@@ -1,0 +1,27 @@
+<header class="site-header">
+  <nav class="container site-nav" aria-label="Menu principal">
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/images/logo-murcia.svg" alt="Logo Manvielle Elegance">
+      <span><%= storeInfo.name %></span>
+    </a>
+    <button class="icon-button nav-toggle" type="button" data-nav-toggle aria-label="Abrir menu" aria-expanded="false" aria-controls="public-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="public-menu" data-nav-menu>
+      <a class="<%= currentPath === '/' ? 'active' : '' %>" href="/">Início</a>
+      <a class="<%= currentPath === '/sobre' ? 'active' : '' %>" href="/sobre">Sobre</a>
+      <a class="<%= currentPath === '/produtos-servicos' ? 'active' : '' %>" href="/produtos-servicos">Produtos e Serviços</a>
+      <a class="<%= currentPath === '/contato' ? 'active' : '' %>" href="/contato">Contato</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label" data-theme-label>Escuro</span>
+      </button>
+      <a class="nav-admin" href="/login">Admin</a>
+    </div>
+  </nav>
+  <button class="nav-backdrop" type="button" data-nav-backdrop aria-label="Fechar menu"></button>
+</header>

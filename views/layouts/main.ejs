@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title><%= pageTitle ? `${pageTitle} | ` : '' %><%= storeInfo.name %></title>
+  <meta name="description" content="Catálogo institucional de papelaria premium, convites, lembranças personalizadas e eventos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      if (localStorage.getItem('manvielleTheme') === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      }
+
+      if (sessionStorage.getItem('manvielleIntroSeen')) {
+        document.documentElement.classList.add('intro-seen');
+      }
+    } catch (error) {}
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="public-shell">
+  <div class="intro-splash" data-intro-splash aria-hidden="true">
+    <img class="intro-logo" src="/images/logo-intro-murcia.png" alt="">
+  </div>
+  <%- include('../partials/public-nav') %>
+  <main>
+    <%- include('../partials/flash') %>
+    <%- body %>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="/">
+          <img class="brand-logo" src="/images/logo-murcia.svg" alt="Logo Manvielle Elegance">
+          <span><%= storeInfo.name %></span>
+        </a>
+        <p>Papelaria premium para momentos que merecem memória, textura e presença.</p>
+      </div>
+      <div>
+        <strong>Atendimento</strong>
+        <p>Segunda a sexta, das 9h às 18h</p>
+        <p><%= storeInfo.address %></p>
+      </div>
+      <div>
+        <strong>Contato</strong>
+        <a href="/contato">Formulário</a>
+        <a href="<%= storeInfo.whatsapp %>" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>
