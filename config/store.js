@@ -3,7 +3,7 @@ const whatsappNumber = process.env.STORE_WHATSAPP_NUMBER || '5561995478540';
 
 const storeInfo = {
   name: 'Manvielle Elegance', // Nome da loja.
-  phone: '(61) 99547-8540', // Telefone de contato.
+  phone: '(61) 98162-4432', // Telefone de contato.
   whatsappNumber, // Número do WhatsApp usado em links de contato.
   whatsapp: `https://wa.me/${whatsappNumber}`, // URL pública do WhatsApp.
   email: 'atendimento@manvielleelegance.com.br', // Email de contato.

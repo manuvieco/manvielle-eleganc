@@ -1,0 +1,44 @@
+<section class="page-hero compact-hero">
+  <div class="container">
+    <span class="eyebrow">Catálogo</span>
+    <h1>Produtos e serviços.</h1>
+    <p>Seleção de convites, lembranças, papelaria personalizada e soluções visuais para eventos premium.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <form class="filter-bar" action="/produtos-servicos" method="GET">
+      <label>
+        <span>Busca</span>
+        <input type="search" name="search" placeholder="Nome ou categoria" value="<%= filters.search %>">
+      </label>
+      <label>
+        <span>Tipo</span>
+        <select name="type">
+          <option value="">Todos</option>
+          <option value="Produto" <%= filters.type === 'Produto' ? 'selected' : '' %>>Produto</option>
+          <option value="Serviço" <%= filters.type === 'Serviço' ? 'selected' : '' %>>Serviço</option>
+        </select>
+      </label>
+      <button class="btn btn-primary" type="submit">Buscar</button>
+      <a class="btn btn-outline" href="/produtos-servicos">Limpar</a>
+    </form>
+  </div>
+
+  <% if (dbNotice) { %>
+    <div class="container">
+      <div class="empty-state"><%= dbNotice %></div>
+    </div>
+  <% } else if (items.length) { %>
+    <div class="container catalog-grid">
+      <% items.forEach((item) => { %>
+        <%- include('../partials/item-card', { item }) %>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="container">
+      <div class="empty-state">Nenhum item encontrado para os filtros selecionados.</div>
+    </div>
+  <% } %>
+</section>

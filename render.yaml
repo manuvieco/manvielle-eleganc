@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: manvielle-elegance
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STORE_WHATSAPP_NUMBER
+        value: 5561995478540
+      - key: DATABASE_URL
+        sync: false

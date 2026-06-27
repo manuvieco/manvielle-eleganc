@@ -1,0 +1,81 @@
+<section class="hero">
+  <img class="hero-image" src="/images/hero-manu.jpg" alt="Produtos de papelaria premium da Manvielle Elegance">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <span class="eyebrow">Papelaria premium para eventos memoráveis</span>
+    <h1><%= storeInfo.name %></h1>
+    <p>Convites, lembranças e identidades visuais criadas com acabamento artesanal, materiais nobres e atendimento próximo.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/produtos-servicos">Conhecer catálogo</a>
+      <a class="btn btn-light" href="<%= contactInfo.whatsapp %>" target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container split-heading">
+    <div>
+      <span class="eyebrow">Serviços principais</span>
+      <h2>Detalhes que elevam a celebração.</h2>
+    </div>
+    <p>Projetos personalizados para casamentos, festas de 15 anos e eventos que pedem uma experiência visual delicada e marcante.</p>
+  </div>
+  <div class="container service-grid">
+    <article class="service-card">
+      <span class="service-number">01</span>
+      <h3>Convites premium</h3>
+      <p>Acetato, papel algodão, lacre, envelope especial e acabamentos metalizados.</p>
+    </article>
+    <article class="service-card">
+      <span class="service-number">02</span>
+      <h3>Lembranças personalizadas</h3>
+      <p>Peças afetivas para convidados, padrinhos e madrinhas, alinhadas ao conceito do evento.</p>
+    </article>
+    <article class="service-card">
+      <span class="service-number">03</span>
+      <h3>Identidade visual</h3>
+      <p>Monogramas, menus, tags, manuais e papelaria completa para uma apresentação coesa.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container section-title-row">
+    <div>
+      <span class="eyebrow">Destaques</span>
+      <h2>Produtos e serviços em evidência.</h2>
+    </div>
+    <a class="text-link" href="/produtos-servicos">Ver catálogo completo</a>
+  </div>
+
+  <% if (dbNotice) { %>
+    <div class="container">
+      <div class="empty-state"><%= dbNotice %></div>
+    </div>
+  <% } else if (featuredItems.length) { %>
+    <div class="container catalog-grid">
+      <% featuredItems.forEach((item) => { %>
+        <%- include('../partials/item-card', { item }) %>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="container">
+      <div class="empty-state">O catálogo será exibido aqui após executar o seed inicial.</div>
+    </div>
+  <% } %>
+</section>
+
+<section class="section section-contrast">
+  <div class="container process-grid">
+    <div>
+      <span class="eyebrow">Experiência</span>
+      <h2>Do briefing ao acabamento final.</h2>
+      <p>Cada projeto passa por curadoria de estilo, escolha de materiais, aprovação visual e produção com atenção ao toque, ao brilho e à entrega.</p>
+    </div>
+    <div class="process-list">
+      <div><strong>Briefing</strong><span>Entendimento do evento, paleta, referências e prazos.</span></div>
+      <div><strong>Design</strong><span>Proposta visual alinhada ao estilo dos anfitriões.</span></div>
+      <div><strong>Produção</strong><span>Acabamento premium e revisão antes da entrega.</span></div>
+    </div>
+  </div>
+</section>

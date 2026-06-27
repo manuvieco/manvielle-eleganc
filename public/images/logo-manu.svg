@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Manu Elegance</title>
+  <desc id="desc">Monograma dourado com letra m e coroa.</desc>
+  <defs>
+    <linearGradient id="gold" x1="40" x2="180" y1="24" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7dc9a"/>
+      <stop offset="0.46" stop-color="#c99547"/>
+      <stop offset="1" stop-color="#8f6427"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#7b5424" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="220" height="220" fill="#fffdf8"/>
+  <g filter="url(#softShadow)">
+    <path d="M70 66 L91 51 L110 71 L129 51 L150 66 L139 87 H81 Z" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="110" cy="101" r="6" fill="url(#gold)"/>
+    <rect x="105" y="24" width="11" height="11" rx="2" transform="rotate(45 110.5 29.5)" fill="url(#gold)"/>
+    <text x="110" y="174" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="700" fill="url(#gold)">m</text>
+  </g>
+</svg>
