@@ -33,7 +33,7 @@
       <span class="eyebrow">Recentes</span>
       <h2>Últimos itens cadastrados</h2>
     </div>
-    <a class="btn btn-primary" href="/admin/items/new">Novo item</a>
+    <a class="btn btn-primary" href="/admin/items/new">Adicionar item</a>
   </div>
 
   <div class="table-wrap">
@@ -46,6 +46,7 @@
           <th>Preço</th>
           <th>Status</th>
           <th>Cadastro</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -58,11 +59,19 @@
               <td><%= formatCurrency(item.price) %></td>
               <td><span class="status-badge <%= item.status === 'Ativo' ? 'is-active' : 'is-inactive' %>"><%= item.status %></span></td>
               <td><%= formatDate(item.created_at) %></td>
+              <td>
+                <div class="table-actions">
+                  <a class="btn btn-small btn-outline" href="/admin/items/<%= item.id %>/edit">Editar</a>
+                  <form action="/admin/items/<%= item.id %>/delete" method="POST" data-confirm="Excluir este item?">
+                    <button class="btn btn-small btn-danger" type="submit">Excluir</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         <% } else { %>
           <tr>
-            <td colspan="6" class="table-empty">Nenhum item cadastrado ainda.</td>
+            <td colspan="7" class="table-empty">Nenhum item cadastrado ainda.</td>
           </tr>
         <% } %>
       </tbody>
